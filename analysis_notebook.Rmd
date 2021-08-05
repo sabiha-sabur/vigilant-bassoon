@@ -1,0 +1,38 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(plotly)
+library(readxl)
+```
+
+This is my import procedure 
+```{r}
+library(readxl)
+url <- "https://github.com/philbowsher/Foundation-of-the-R-Workflow-workshop-2019-09-06/raw/master/Examples/data/ad_treatment.xlsx"
+destfile <-"ad_treatment(2).xlsx"
+curl::curl_download(url, destfile)
+ad_treatment <- read_excel(destfile)
+
+ad_treatment
+```
+
+This is my awesome data Viz of survey res
+```{r}
+ggplot(ad_treatment) +
+ aes(x = health_status, colour = sex) +
+ geom_bar(fill = "#0c4c8a") +
+ scale_color_gradient() +
+ theme_minimal()
+```
+
+```{r}
+ggplot(ad_treatment) +
+ aes(x = health_status, colour = sex) +
+ geom_bar(fill = "#0c4c8a") +
+ scale_color_gradient() +
+ theme_minimal()
+```
